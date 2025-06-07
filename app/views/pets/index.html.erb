@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h1>Here is the list of all my <%= @pets.count %> pets</h1>
+      <ol class="my-5">
+        <% @pets.each do |pet| %>
+          <li><%= link_to pet.name, pet_path(pet) %> the <%= pet.species %> – <%= link_to "Remove", pet_path(pet), data: {turbo_method: :delete, turbo_confirm: "Are you really sure to remove #{pet.name} from the list?"} %></li>
+        <% end %>
+      </ol>
+      <%= link_to "Add a new found pet", new_pet_path, class: "btn btn-success" %>
+
+    </div>
+  </div>
+</div>
